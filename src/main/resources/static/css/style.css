@@ -1,0 +1,744 @@
+/* =========================================
+   GLOBAL
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+    line-height: 1.6;
+}
+
+.container {
+    width: 92%;
+    max-width: 1400px;
+    margin: auto;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.header {
+    background: linear-gradient(
+        135deg,
+        #1f4e79,
+        #2e75b6
+    );
+
+    color: #ffffff;
+
+    padding: 35px 0;
+    margin-bottom: 30px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.header h1 {
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+.header p {
+    font-size: 17px;
+    opacity: 0.9;
+}
+
+
+/* =========================================
+   SEARCH SECTION
+   ========================================= */
+
+.search-section {
+    background: #ffffff;
+
+    padding: 25px;
+    margin-bottom: 25px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.search-section h2 {
+    margin-bottom: 18px;
+    color: #1f4e79;
+}
+
+.search-box {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.search-box input {
+    flex: 1;
+
+    min-width: 250px;
+
+    padding: 13px 15px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: #1f4e79;
+
+    box-shadow:
+        0 0 0 2px rgba(31, 78, 121, 0.1);
+}
+
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+button {
+    border: none;
+    border-radius: 8px;
+
+    padding: 13px 22px;
+
+    background: #1f4e79;
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        background 0.2s;
+}
+
+button:hover {
+    background: #173a5c;
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.secondary-button {
+    background: #6c757d;
+}
+
+.secondary-button:hover {
+    background: #545b62;
+}
+
+#loadAllButton {
+    background: #198754;
+}
+
+#loadAllButton:hover {
+    background: #146c43;
+}
+
+
+/* =========================================
+   MESSAGE
+   ========================================= */
+
+#message {
+    margin-top: 12px;
+
+    font-size: 14px;
+
+    color: #555;
+}
+
+
+/* =========================================
+   STATISTICS CARDS
+   ========================================= */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: #ffffff;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card h3 {
+    color: #666;
+
+    font-size: 16px;
+
+    margin-bottom: 10px;
+}
+
+.stat-card p {
+    color: #1f4e79;
+
+    font-size: 28px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   COUNTRY INFORMATION
+   ========================================= */
+
+.country-info {
+    background: #ffffff;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.country-info h2 {
+    color: #1f4e79;
+
+    margin-bottom: 20px;
+}
+
+.info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.info-grid div {
+    background: #f5f7fa;
+
+    padding: 15px;
+
+    border-radius: 8px;
+}
+
+.info-grid strong {
+    display: block;
+
+    color: #555;
+
+    margin-bottom: 5px;
+}
+
+.info-grid span {
+    color: #1f4e79;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   CHART SECTION
+   ========================================= */
+
+.charts-section {
+    background: #ffffff;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.charts-section > h2 {
+    color: #1f4e79;
+
+    margin-bottom: 20px;
+}
+
+.charts-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.chart-container {
+    background: #fafafa;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    border: 1px solid #eeeeee;
+}
+
+.chart-container h3 {
+    text-align: center;
+
+    margin-bottom: 15px;
+
+    color: #444;
+}
+
+.chart-wrapper {
+    position: relative;
+
+    height: 400px;
+
+    width: 100%;
+}
+
+
+/* =========================================
+   COMPARE COUNTRIES
+   ========================================= */
+
+.comparison-section {
+    width: 100%;
+
+    background: #ffffff;
+
+    padding: 30px;
+
+    margin: 30px 0;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.comparison-section h2 {
+    margin: 0 0 25px 0;
+
+    font-size: 28px;
+
+    color: #222222;
+}
+
+.comparison-controls {
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+}
+
+.country-select-box {
+    width: 350px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.country-select-box label {
+    display: block;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    color: #333333;
+}
+
+#countrySelect {
+    display: block;
+
+    width: 350px !important;
+
+    min-width: 350px !important;
+
+    max-width: 350px !important;
+
+    height: 180px !important;
+
+    min-height: 180px !important;
+
+    padding: 8px !important;
+
+    box-sizing: border-box;
+
+    border: 2px solid #1f4e79 !important;
+
+    border-radius: 8px;
+
+    background: #ffffff !important;
+
+    color: #222222 !important;
+
+    font-size: 15px;
+
+    overflow-y: auto;
+
+    cursor: pointer;
+
+    outline: none;
+}
+
+#countrySelect:focus {
+    box-shadow:
+        0 0 0 3px rgba(31, 78, 121, 0.15);
+}
+
+#countrySelect option {
+    display: block;
+
+    padding: 9px;
+
+    background: #ffffff;
+
+    color: #222222;
+
+    font-size: 15px;
+}
+
+#countrySelect option:checked {
+    background: #1f4e79 !important;
+
+    color: #ffffff !important;
+}
+
+.country-select-box small {
+    display: block;
+
+    color: #666666;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+}
+
+#compareButton {
+    width: 190px;
+
+    height: 48px;
+
+    padding: 0 20px;
+
+    background: #1f4e79;
+
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+#compareButton:hover {
+    background: #173a5c;
+}
+
+#compareButton:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   COMPARISON CHART
+   ========================================= */
+
+.comparison-chart-container {
+    position: relative;
+
+    width: 100%;
+
+    height: 450px;
+
+    margin-top: 30px;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    background: #fafafa;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 10px;
+}
+
+.comparison-chart-container canvas {
+    display: block;
+
+    width: 100% !important;
+
+    height: 400px !important;
+}
+
+
+/* =========================================
+   TABLE SECTION
+   ========================================= */
+
+.table-section {
+    background: #ffffff;
+
+    padding: 25px;
+
+    margin-bottom: 30px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.table-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+
+    flex-wrap: wrap;
+}
+
+.table-header h2 {
+    color: #1f4e79;
+}
+
+.table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 900px;
+}
+
+thead {
+    background: #1f4e79;
+
+    color: #ffffff;
+}
+
+th,
+td {
+    padding: 13px 12px;
+
+    text-align: left;
+
+    border-bottom: 1px solid #ddd;
+
+    white-space: nowrap;
+}
+
+tbody tr:hover {
+    background: #f5f8fb;
+}
+
+tbody tr:nth-child(even) {
+    background: #fafafa;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.footer {
+    background: #1f4e79;
+
+    color: #ffffff;
+
+    text-align: center;
+
+    padding: 22px;
+
+    margin-top: 30px;
+}
+
+.footer p {
+    font-size: 14px;
+}
+
+
+/* =========================================
+   RESPONSIVE - TABLET
+   ========================================= */
+
+@media (max-width: 1000px) {
+
+    .stats-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .info-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE - MOBILE
+   ========================================= */
+
+@media (max-width: 650px) {
+
+    .container {
+        width: 94%;
+    }
+
+    .header {
+        padding: 25px 0;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .header p {
+        font-size: 14px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box input {
+        width: 100%;
+
+        min-width: 100%;
+    }
+
+    .search-box button {
+        width: 100%;
+    }
+
+    .comparison-section {
+        padding: 20px;
+    }
+
+    .comparison-controls {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .country-select-box {
+        width: 100%;
+    }
+
+    #countrySelect {
+        width: 100% !important;
+
+        min-width: 100% !important;
+
+        max-width: 100% !important;
+
+        height: 180px !important;
+    }
+
+    #compareButton {
+        width: 100%;
+    }
+
+    .chart-wrapper {
+        height: 300px;
+    }
+
+    .comparison-chart-container {
+        height: 350px;
+
+        padding: 10px;
+    }
+
+    .comparison-chart-container canvas {
+        height: 320px !important;
+    }
+
+    .table-section {
+        padding: 15px;
+    }
+}
+
+
+

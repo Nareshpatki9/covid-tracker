@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>COVID-19 Tracker Dashboard</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.min.js"></script>
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>COVID-19 Tracker</h1>
+
+        <p>
+            Global COVID-19 Statistics Dashboard
+        </p>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <!-- ==============================
+         SEARCH COUNTRY
+         ============================== -->
+
+    <section class="search-section">
+
+        <h2>Search Country</h2>
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="countryInput"
+                placeholder="Enter country name e.g. India"
+                autocomplete="off"
+            >
+
+            <button id="searchButton">
+                Search
+            </button>
+
+            <button
+                id="refreshButton"
+                class="secondary-button">
+
+                Refresh
+
+            </button>
+
+        </div>
+
+        <p id="message"></p>
+
+    </section>
+
+
+    <!-- ==============================
+         STATISTICS CARDS
+         ============================== -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+            <h3>Total Cases</h3>
+            <p id="totalCases">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>New Cases</h3>
+            <p id="newCases">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Total Deaths</h3>
+            <p id="totalDeaths">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>New Deaths</h3>
+            <p id="newDeaths">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Recovered</h3>
+            <p id="totalRecovered">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Active Cases</h3>
+            <p id="activeCases">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Critical Cases</h3>
+            <p id="criticalCases">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Population</h3>
+            <p id="population">0</p>
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         COUNTRY INFORMATION
+         ============================== -->
+
+    <section class="country-info">
+
+        <h2>Country Information</h2>
+
+        <div class="info-grid">
+
+            <div>
+                <strong>Country:</strong>
+                <span id="countryName">-</span>
+            </div>
+
+            <div>
+                <strong>Country Code:</strong>
+                <span id="countryCode">-</span>
+            </div>
+
+            <div>
+                <strong>Continent:</strong>
+                <span id="continent">-</span>
+            </div>
+
+            <div>
+                <strong>Record Date:</strong>
+                <span id="recordDate">-</span>
+            </div>
+
+            <div>
+                <strong>Cases / Million:</strong>
+                <span id="casesPerMillion">-</span>
+            </div>
+
+            <div>
+                <strong>Deaths / Million:</strong>
+                <span id="deathsPerMillion">-</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         MAIN CHARTS
+         ============================== -->
+
+    <section class="charts-section">
+
+        <h2>COVID Statistics</h2>
+
+        <div class="charts-grid">
+
+            <div class="chart-container">
+
+                <h3>Cases Overview</h3>
+
+                <div class="chart-wrapper">
+
+                    <canvas id="casesChart"></canvas>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-container">
+
+                <h3>COVID Distribution</h3>
+
+                <div class="chart-wrapper">
+
+                    <canvas id="deathChart"></canvas>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         COUNTRY COMPARISON
+         ============================== -->
+
+   <!-- ==============================
+     COUNTRY COMPARISON
+     ============================== -->
+
+<section class="comparison-section">
+
+    <h2>Compare Countries</h2>
+
+    <div class="comparison-controls">
+
+        <div class="country-select-box">
+
+            <label for="countrySelect">
+                Select Countries
+            </label>
+
+            <select id="countrySelect" multiple>
+            </select>
+
+            <small>
+                Hold Ctrl and select 2 to 5 countries.
+            </small>
+
+        </div>
+
+        <button id="compareButton">
+            Compare Countries
+        </button>
+
+    </div>
+
+    <div class="comparison-chart-container">
+
+        <canvas id="comparisonChart"></canvas>
+
+    </div>
+
+</section>
+
+
+    <!-- ==============================
+         SAVED COUNTRIES
+         ============================== -->
+
+    <section class="table-section">
+
+        <div class="table-header">
+
+            <h2>
+                Saved COVID Statistics
+            </h2>
+
+            <button id="loadAllButton">
+                Load All Countries
+            </button>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Country</th>
+
+                    <th>Continent</th>
+
+                    <th>Total Cases</th>
+
+                    <th>Deaths</th>
+
+                    <th>Recovered</th>
+
+                    <th>Active</th>
+
+                    <th>Date</th>
+
+                </tr>
+
+                </thead>
+
+
+                <tbody id="countryTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ==============================
+     FOOTER
+     ============================== -->
+
+<footer class="footer">
+
+    <p>
+        COVID-19 Tracker |
+        Spring Boot + MySQL + REST API
+    </p>
+
+</footer>
+
+
+<!-- ==============================
+     JAVASCRIPT
+     ============================== -->
+
+<script src="/js/charts.js"></script>
+
+<script src="/js/dashboard.js"></script>
+
+</body>
+
+</html>
